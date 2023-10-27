@@ -1,37 +1,37 @@
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
-<!--  If necessary, please modify the charset parameter to specify the        -->
-<!--  character set of your HTML page.                                        -->
-<!--  ----------------------------------------------------------------------  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 
-<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+</head>
+<body>
+    <h1>Sign Up for a Birthday Email!</h1>
 
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: Please add the following <FORM> element to your page.             -->
-<!--  ----------------------------------------------------------------------  -->
+    <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" onsubmit="beforeSubmit(event)" method="POST">
+    
+        <input type=hidden name="oid" value="00D040000002trd">
+        <input type=hidden name="retURL" value="https://mroutt.github.io/SalesforceWebToLead/thankyou.html">
+        <input type="hidden" name="Date_of_Birth__c" id="Date_of_Birth__c">
+        <input type=hidden name='captcha_settings' value='{"keyname":"GitHub","fallback":"true","orgId":"00D040000002trd","ts":""}'>
 
-<form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D06000001cBuN" method="POST">
+        <label for="first_name">First Name</label><input required id="first_name" name="first_name" size="20" type="text" />
+        
+        <label for="last_name">Last Name</label><input required id="last_name" name="last_name" size="20" type="text" />
+        
+        <label for="email">Email</label><input required id="email"  name="email" size="20" type="text" />
+                
+        <label for="date-of-birth">Date of Birth</label><input required type="date" id="date-of-birth" />
 
-<input type=hidden name="orgid" value="00D06000001cBuN">
-<input type=hidden name="retURL" value="http://">
+        <div class="g-recaptcha" data-callback="captchaSuccess" data-sitekey="6LducAcnAAAAAL6fVeEOQuQqHDTd17RACa74bDPl"></div>
 
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
-<!--  these lines if you wish to test in debug mode.                          -->
-<!--  <input type="hidden" name="debug" value=1>                              -->
-<!--  <input type="hidden" name="debugEmail" value="vapekg1@gmail.com">       -->
-<!--  ----------------------------------------------------------------------  -->
-
-<label for="name">Contact Name</label><input  id="name" maxlength="80" name="name" size="20" type="text" /><br>
-
-<label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
-
-<label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
-
-<label for="subject">Subject</label><input  id="subject" maxlength="80" name="subject" size="20" type="text" /><br>
-
-<label for="description">Description</label><textarea name="description"></textarea><br>
-
-<input type="submit" name="submit">
-
-</form>
+        <input type="submit" name="submit">
+    
+    </form>
+    
+</body>
+</html>
